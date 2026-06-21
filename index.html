@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nabantia — European Portuguese Lessons</title>
+  <meta name="description" content="Learn authentic European Portuguese with a qualified tutor. Individual online lessons and small group sessions in Tomar, Portugal." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --stone: #F7F4EF;
+      --ink: #1A1714;
+      --clay: #8B5E3C;
+      --mist: #E8E3DB;
+      --warm-grey: #7A7168;
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans: 'Inter', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--stone);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 4rem;
+      background: var(--stone);
+      border-bottom: 1px solid var(--mist);
+    }
+
+    .nav-logo {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.78rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--warm-grey);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--ink); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-top: 80px;
+    }
+
+    .hero-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 6rem 4rem 6rem 4rem;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--clay);
+      margin-bottom: 2rem;
+    }
+
+    .hero-title {
+      font-family: var(--serif);
+      font-size: clamp(2.8rem, 5vw, 4.5rem);
+      font-weight: 400;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--clay);
+    }
+
+    .hero-sub {
+      font-size: 1rem;
+      color: var(--warm-grey);
+      max-width: 38ch;
+      margin-bottom: 3rem;
+      line-height: 1.8;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      padding: 0.9rem 2.2rem;
+      background: var(--ink);
+      color: var(--stone);
+      font-family: var(--sans);
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.2s;
+      width: fit-content;
+    }
+
+    .btn-primary:hover { background: var(--clay); }
+
+    .hero-image {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: sepia(15%) contrast(1.05);
+    }
+
+    .hero-image-caption {
+      position: absolute;
+      bottom: 2rem;
+      left: 2rem;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+    }
+
+    /* SECTION DEFAULTS */
+    section { padding: 7rem 4rem; }
+
+    .section-eyebrow {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--clay);
+      margin-bottom: 1.2rem;
+    }
+
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ABOUT */
+    .about {
+      background: var(--ink);
+      color: var(--stone);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+
+    .about .section-eyebrow { color: var(--clay); }
+
+    .about .section-title { color: var(--stone); }
+
+    .about-body {
+      font-size: 1rem;
+      line-height: 1.9;
+      color: rgba(247,244,239,0.75);
+    }
+
+    .about-body p + p { margin-top: 1.2rem; }
+
+    .credentials {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      padding-left: 3rem;
+      border-left: 1px solid var(--clay);
+    }
+
+    .credential-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .credential-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--clay);
+    }
+
+    .credential-value {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      color: var(--stone);
+      line-height: 1.4;
+    }
+
+    /* SERVICES */
+    .services { background: var(--stone); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      margin-top: 4rem;
+      background: var(--mist);
+    }
+
+    .service-card {
+      background: var(--stone);
+      padding: 3rem;
+    }
+
+    .service-number {
+      font-family: var(--serif);
+      font-size: 3rem;
+      font-weight: 400;
+      color: var(--mist);
+      line-height: 1;
+      margin-bottom: 1.5rem;
+    }
+
+    .service-title {
+      font-family: var(--serif);
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .service-desc {
+      font-size: 0.9rem;
+      color: var(--warm-grey);
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+
+    .service-detail {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--clay);
+    }
+
+    /* WHY */
+    .why {
+      background: var(--mist);
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 6rem;
+      align-items: start;
+    }
+
+    .why-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .why-item {
+      padding: 2rem 0;
+      border-top: 1px solid var(--warm-grey);
+      display: grid;
+      grid-template-columns: 3rem 1fr;
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    .why-item:last-child { border-bottom: 1px solid var(--warm-grey); }
+
+    .why-item-num {
+      font-family: var(--serif);
+      font-size: 0.85rem;
+      color: var(--clay);
+      padding-top: 0.2rem;
+    }
+
+    .why-item-title {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    .why-item-desc {
+      font-size: 0.88rem;
+      color: var(--warm-grey);
+      line-height: 1.7;
+    }
+
+    /* CONTACT */
+    .contact {
+      background: var(--stone);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: start;
+    }
+
+    .contact-intro {
+      font-size: 1rem;
+      color: var(--warm-grey);
+      line-height: 1.8;
+      margin-top: 1.5rem;
+      max-width: 40ch;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .form-group label {
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--warm-grey);
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid var(--mist);
+      padding: 0.7rem 0;
+      font-family: var(--sans);
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: var(--ink);
+      outline: none;
+      transition: border-color 0.2s;
+      width: 100%;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-bottom-color: var(--clay);
+    }
+
+    .form-group textarea { resize: vertical; min-height: 100px; }
+
+    .form-group select { background: transparent; cursor: pointer; }
+
+    .btn-submit {
+      display: inline-block;
+      padding: 0.9rem 2.2rem;
+      background: var(--ink);
+      color: var(--stone);
+      font-family: var(--sans);
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+      width: fit-content;
+    }
+
+    .btn-submit:hover { background: var(--clay); }
+
+    /* FOOTER */
+    footer {
+      background: var(--ink);
+      color: rgba(247,244,239,0.5);
+      padding: 3rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+    }
+
+    .footer-logo {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      color: var(--stone);
+      text-decoration: none;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      nav { padding: 1.2rem 1.5rem; }
+      .nav-links { gap: 1.5rem; }
+
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-text { padding: 5rem 1.5rem 3rem; }
+      .hero-image { height: 50vw; min-height: 260px; }
+
+      section { padding: 4rem 1.5rem; }
+
+      .about,
+      .contact,
+      .why { grid-template-columns: 1fr; gap: 3rem; }
+
+      .credentials { padding-left: 1.5rem; }
+
+      .services-grid { grid-template-columns: 1fr; }
+
+      footer { flex-direction: column; gap: 1rem; text-align: center; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">Nabantia</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Lessons</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-text">
+      <p class="hero-eyebrow">European Portuguese · Tomar, Portugal</p>
+      <h1 class="hero-title">The language<br>as it is <em>spoken</em></h1>
+      <p class="hero-sub">European Portuguese sounds, moves, and feels different from what most apps teach. Learn it properly — with a qualified teacher.</p>
+      <a href="#contact" class="btn-primary">Book a first lesson</a>
+    </div>
+    <div class="hero-image">
+      <img
+        src="https://images.unsplash.com/photo-1555881400-74d7acaacd8b?w=900&q=80"
+        alt="Tomar, Portugal"
+        loading="eager"
+      />
+      <span class="hero-image-caption">Tomar, Portugal</span>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div>
+      <p class="section-eyebrow">About</p>
+      <h2 class="section-title">A Master's in teaching the language. Not a shortcut.</h2>
+      <div class="about-body">
+        <p>Nabantia was founded in Tomar — the ancient Roman city of Nabância — with a single purpose: to teach European Portuguese the way it deserves to be taught.</p>
+        <p>Behind every lesson is a teacher with a degree in Portuguese and a Master's in Portuguese Language Teaching. Not a native speaker with good intentions. A professional trained specifically to help adults learn.</p>
+      </div>
+    </div>
+    <div class="credentials">
+      <div class="credential-item">
+        <span class="credential-label">Qualification</span>
+        <span class="credential-value">Bachelor's Degree in Portuguese</span>
+      </div>
+      <div class="credential-item">
+        <span class="credential-label">Specialisation</span>
+        <span class="credential-value">Master's in Portuguese Language Teaching</span>
+      </div>
+      <div class="credential-item">
+        <span class="credential-label">Format</span>
+        <span class="credential-value">Online · Individual<br>In-person · Small groups</span>
+      </div>
+      <div class="credential-item">
+        <span class="credential-label">Location</span>
+        <span class="credential-value">Tomar, Portugal</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <p class="section-eyebrow">Lessons</p>
+    <h2 class="section-title">Two ways to learn</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-number">01</div>
+        <h3 class="service-title">Online — Individual</h3>
+        <p class="service-desc">One-to-one lessons adapted to your level, pace, and goals. Sessions take place via video call, available to students anywhere in the world.</p>
+        <p class="service-desc">Ideal for those who want structured progress in European Portuguese — pronunciation, grammar, and real conversation — without leaving home.</p>
+        <p class="service-detail">Available worldwide · Flexible scheduling</p>
+      </div>
+      <div class="service-card">
+        <div class="service-number">02</div>
+        <h3 class="service-title">In-person — Small Groups</h3>
+        <p class="service-desc">Small group sessions in Tomar for those living in or visiting the region. A more social way to learn, with the benefit of real interaction and immediate feedback.</p>
+        <p class="service-desc">Groups are kept small to ensure every student receives individual attention throughout the session.</p>
+        <p class="service-detail">Tomar, Portugal · Small groups only</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY -->
+  <section class="why">
+    <div>
+      <p class="section-eyebrow">Why Nabantia</p>
+      <h2 class="section-title">What makes the difference</h2>
+    </div>
+    <ul class="why-list">
+      <li class="why-item">
+        <span class="why-item-num">—</span>
+        <div>
+          <h3 class="why-item-title">European Portuguese, specifically</h3>
+          <p class="why-item-desc">Not Brazilian Portuguese adapted. The sounds, rhythm, and vocabulary of the language spoken in Portugal — taught by someone who knows the difference and why it matters.</p>
+        </div>
+      </li>
+      <li class="why-item">
+        <span class="why-item-num">—</span>
+        <div>
+          <h3 class="why-item-title">Trained to teach adults</h3>
+          <p class="why-item-desc">A Master's in Portuguese Language Teaching means lessons are built around how adults actually learn — not how children do, and not how apps assume everyone does.</p>
+        </div>
+      </li>
+      <li class="why-item">
+        <span class="why-item-num">—</span>
+        <div>
+          <h3 class="why-item-title">No intermediaries</h3>
+          <p class="why-item-desc">You contact the teacher directly. No platform, no commission, no algorithm between you and the person teaching you.</p>
+        </div>
+      </li>
+      <li class="why-item">
+        <span class="why-item-num">—</span>
+        <div>
+          <h3 class="why-item-title">Rooted in a real place</h3>
+          <p class="why-item-desc">Nabantia takes its name from Tomar's Roman past. The language we teach has the same roots — real, specific, not generic.</p>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div>
+      <p class="section-eyebrow">Contact</p>
+      <h2 class="section-title">Let's find the right lesson for you</h2>
+      <p class="contact-intro">Tell me a little about your current level and what you're hoping to achieve. I'll suggest the best format and starting point.</p>
+    </div>
+    <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required />
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required />
+      </div>
+      <div class="form-group">
+        <label for="level">Current level in Portuguese</label>
+        <select id="level" name="level">
+          <option value="">— Select —</option>
+          <option>Complete beginner</option>
+          <option>Some basics</option>
+          <option>Intermediate</option>
+          <option>Advanced</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="message">What brings you to European Portuguese?</label>
+        <textarea id="message" name="message"></textarea>
+      </div>
+      <button type="submit" class="btn-submit">Send message</button>
+    </form>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <a href="#" class="footer-logo">Nabantia</a>
+    <span>© 2026 Nabantia · Tomar, Portugal</span>
+  </footer>
+
+</body>
+</html>
