@@ -45,12 +45,15 @@
     }
 
     .nav-logo {
-      font-family: var(--serif);
-      font-size: 1.4rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      color: var(--ink);
+      display: flex;
+      align-items: center;
       text-decoration: none;
+    }
+    
+    .nav-logo img {
+      height: 34px;
+      width: auto;
+      display: block;
     }
 
     .nav-links {
@@ -444,7 +447,7 @@
     /* RESPONSIVE */
     @media (max-width: 900px) {
       nav { padding: 1.2rem 1rem; }
-      .nav-logo { font-size: 1.2rem; }
+      .nav-logo img { height: 30px; }
       .nav-links { gap: 0.9rem; }
       .nav-links a {
         font-size: 0.68rem;
@@ -477,7 +480,8 @@
 
   <!-- NAV -->
   <nav>
-    <a href="#" class="nav-logo">Nabantia</a>
+    <a href="#" class="nav-logo">
+      <img src="Nabantialogo.png" alt="Nabantia" />
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#services">Lessons</a></li>
