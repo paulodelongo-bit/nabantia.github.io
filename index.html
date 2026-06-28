@@ -151,6 +151,24 @@
       object-position: center;
     }
 
+    .hero-fade-left {
+      position: absolute;
+      top: 0; left: 0;
+      width: 15%;
+      height: 100%;
+      background: linear-gradient(to right, var(--stone), transparent);
+      pointer-events: none;
+    }
+    
+    .hero-fade-right {
+      position: absolute;
+      top: 0; right: 0;
+      width: 20%;
+      height: 100%;
+      background: linear-gradient(to left, var(--stone), transparent);
+      pointer-events: none;
+    }
+    
     /* SECTION DEFAULTS */
     section { padding: 7rem 4rem; }
 
